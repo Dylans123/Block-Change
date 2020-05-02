@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity >=0.4.21 <0.7.0;
 
 contract PetitionList {
   uint public petitionCount = 0;
@@ -10,7 +10,6 @@ contract PetitionList {
     string title;
     string description;
     Vote[] votes;
-    // VoteList voteList;
   }
 
   struct Vote {
@@ -23,7 +22,10 @@ contract PetitionList {
   event PetitionCreated(
     uint id,
     string title,
-    string description
+    string description,
+    string creatorFirstName,
+    string creatorLastName,
+    string creatorEmail
   );
 
   event VoteCreated(
@@ -33,13 +35,15 @@ contract PetitionList {
     string email
   );
 
-  function createPetition(string memory _title, string memory _description) public {
+  function createPetition(
+    string memory _title, string memory _description, string memory _creatorFirstName, string memory _creatorLastName, string memory _creatorEmail
+  ) public {
     petitionCount ++;
     petitions[petitionCount].title = _title;
     petitions[petitionCount].description = _description;
     petitions[petitionCount].voteCount = 1;
-    petitions[petitionCount].votes.push(Vote(petitionCount, "first", "last", "firstlast@gmail.com"));
-    emit PetitionCreated(petitionCount, _title, _description);
+    petitions[petitionCount].votes.push(Vote(petitionCount, _creatorFirstName, _creatorLastName, _creatorEmail));
+    emit PetitionCreated(petitionCount, _title, _description, _creatorFirstName, _creatorLastName, _creatorEmail);
   }
 
   function CreateVote(uint _id, string memory _firstName, string memory _lastName, string memory _email) public {
