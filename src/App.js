@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Web3 from 'web3'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    this.loadBlockchainData()
+  }
+
+  async loadBlockchainData() {
+    if (window.ethereum) {
+      console.log("woah")
+      window.web3 = new Web3(window.ethereum);
+      try {
+          // Request account access if needed
+          await window.ethereum.enable();
+          // Acccounts now exposed
+          const accounts = await window.web3.eth.getAccounts()
+          console.log(accounts)
+          this.setState({ account: accounts[0] })
+      } catch (error) {
+          // User denied account access...
+      }
+    }
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = { account: '' }
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <h1>Hello, World!</h1>
+        <p>Your account: {this.state.account}</p>
+      </div>
+    );
+  }
 }
 
 export default App;
