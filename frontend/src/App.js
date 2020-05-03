@@ -32,19 +32,14 @@ class App extends Component {
     const web3 = new Web3(Web3.givenProvider || "http://localhost:8545")
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
-    console.log(accounts);
     const petitionList = new web3.eth.Contract(PETITION_LIST_ABI, PETITION_LIST_ADDRESS)
-    console.log(petitionList.methods)
     this.setState({ petitionList })
-    const petitionCount = await petitionList.methods.petitionCount().call()
-    console.log(petitionCount)
-    const testPetititon = await petitionList.methods.petitions(0).call();
-    console.log(testPetititon);
+    const petitionCount = await petitionList.methods.petitionCount().call();
     this.setState({ petitionCount });
-    console.log(petitionCount)
     for (let i = 0; i < petitionCount; ++i) {
       const petition = await petitionList.methods.petitions(i).call()
-      console.log(petition)
+      console.log(i);
+      console.log(petition);
       this.setState({ petitions: [...this.state.petitions, petition] })
     }
   }
@@ -61,13 +56,15 @@ class App extends Component {
   createVote(content) {
     this.setState({ loading: true })
     this.state.petitionList.methods.createVote(content._id, content._firstName, content._lastName, content._email).send({ from: this.state.account })
-    .once('receipt', (receipt) => {
-      this.loadBlockchainData();
+    .once('receipt', async (receipt) => {
+      this.setState({ petitions: [] })
+      await this.loadBlockchainData();
       this.setState({ loading: false })
     })
   }
 
   handleSignature(petition, signee) {
+    console.log(petition.id);
     const content = {
       _id: petition.id,
       _firstName: signee.firstName,

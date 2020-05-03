@@ -1,4 +1,4 @@
-export const PETITION_LIST_ADDRESS = "0xA40093490E75758a3493b3781D2a0Aa0dBBA6c31"
+export const PETITION_LIST_ADDRESS = "0x7f59bA8bd97683467a5Dc2622bb3DAf9AC3970e5"
 export const PETITION_LIST_ABI = [
   {
     "constant": true,

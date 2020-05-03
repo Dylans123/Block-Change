@@ -68,6 +68,7 @@ contract PetitionList {
   function createPetition(
     string memory _title, string memory _description, string memory _creatorFirstName, string memory _creatorLastName, string memory _creatorEmail, string memory _category, string memory _recipient
   ) public {
+    petitions[petitionCount].id = petitionCount;
     petitions[petitionCount].title = _title;
     petitions[petitionCount].description = _description;
     petitions[petitionCount].category = _category;
