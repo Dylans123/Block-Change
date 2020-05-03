@@ -2,4 +2,8 @@ $theme-colors: (
   "primary": #B4E178,
 );
 
+body {
+  font-family: Verdana, Geneva, sans-serif !important;
+}
+
 @import "node_modules/bootstrap/scss/bootstrap";

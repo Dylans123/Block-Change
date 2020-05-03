@@ -5,15 +5,18 @@ import { AppBar, Typography, Container, Button } from "@material-ui/core"
 const Header = ({ handleOpen }) => {
   return (
     <AppBar position="static" style={{ backgroundColor: '#B4E178', color: 'black' }}>
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <div className="my-3" style={{ display: 'flex', alignItems: 'center' }}>
-          {/* <Typography variant="h5">
-            BLOCKCHANGE
-          </Typography> */}
-          <img src={Logo} />
-          <Button className="ml-4 p-0" style={{ textTransform: 'none' }} onClick={() => handleOpen()}>Create petition</Button>
-          <Button className="ml-4" style={{ textTransform: 'none' }}>About</Button>
-          <Button className="ml-4" style={{ textTransform: 'none' }}>Contact</Button>
+          <img src={Logo} width='25%' />
+          <Button style={{ marginLeft: '75px' }} onClick={() => handleOpen()}>
+            <Typography variant="h6" style={{ fontWeight: 900 }}>Create petition</Typography>
+          </Button>
+          <Button style={{ marginLeft: '75px' }}>
+            <Typography variant="h6" style={{ fontWeight: 900 }}>About</Typography>
+          </Button>
+          <Button style={{ marginLeft: '75px' }}>
+            <Typography variant="h6" style={{ fontWeight: 900 }}>Contact</Typography>
+          </Button>
         </div>
       </Container>
     </AppBar>

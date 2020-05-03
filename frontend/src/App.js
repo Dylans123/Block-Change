@@ -133,7 +133,7 @@ class App extends Component {
         <SignModal open={signOpen} handleClose={this.handleSignClose} handleSignature={this.handleSignature} petition={curPetition} />
         <CreateModal open={createOpen} handleClose={this.handleCreateClose} handleCreate={this.handleCreate} />
         <Header handleOpen={this.handleCreateOpen}/>
-        <Container maxWidth="sm">
+        <Container maxWidth="md">
           <div style={{ width: '100%' }}>
             <div className="row my-5" style={{ display: 'flex', alignItems: 'center', fontStyle: 'italic' }}>
               <div className="col-6">
