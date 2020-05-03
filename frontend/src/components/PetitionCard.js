@@ -32,7 +32,7 @@ class PetitionCard extends Component {
               </Typography>
             </Button>
             <Typography className="m-2" color="textSecondary" gutterBottom style={{ display: 'flex', alignITems: 'center' }}>
-              <Person className="mr-1" style={{ color: '#B4E178' }} /><b>1 supporters</b>
+              <Person className="mr-1" style={{ color: '#B4E178' }} /><b>{petition.voteCount} supporters</b>
             </Typography>
           </div>
         </div>
