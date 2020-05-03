@@ -38,8 +38,6 @@ class App extends Component {
     this.setState({ petitionCount });
     for (let i = 0; i < petitionCount; ++i) {
       const petition = await petitionList.methods.petitions(i).call()
-      console.log(i);
-      console.log(petition);
       this.setState({ petitions: [...this.state.petitions, petition] })
     }
   }
@@ -64,7 +62,6 @@ class App extends Component {
   }
 
   handleSignature(petition, signee) {
-    console.log(petition.id);
     const content = {
       _id: petition.id,
       _firstName: signee.firstName,
