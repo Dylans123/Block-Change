@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@material-ui/core';
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions, Typography } from '@material-ui/core';
 
-class SignModal extends Component {
+class CreateModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,7 +26,9 @@ class SignModal extends Component {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Enter the information about your cause below to create a petition"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">
+          {"Enter the information about your petition below"}
+        </DialogTitle>
         <DialogContent>
           <form>
             <div class="form-group">
@@ -43,7 +45,7 @@ class SignModal extends Component {
             </div>
             <div class="form-group">
               <label for="description">Description</label>
-              <textfield type="text" class="form-control" id="description" name="description" onChange={(e) => {this.handleChange(e)}} placeholder="Description" />
+              <textarea type="text" class="form-control" id="description" name="description" onChange={(e) => {this.handleChange(e)}} placeholder="Description" />
             </div>
             <div class="form-group">
               <label for="firstName">First Name</label>
@@ -64,7 +66,7 @@ class SignModal extends Component {
             Cancel
           </Button>
           <Button onClick={() => {handleCreate(this.state)}} autoFocus>
-            Sign
+            Create
           </Button>
         </DialogActions>
       </Dialog>
@@ -72,4 +74,4 @@ class SignModal extends Component {
   }
 }
 
-export default SignModal;
+export default CreateModal;

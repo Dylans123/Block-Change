@@ -25,6 +25,7 @@ class App extends Component {
     this.handleSignClose = this.handleSignClose.bind(this);
     this.handleCreateOpen = this.handleCreateOpen.bind(this);
     this.handleCreateClose = this.handleCreateClose.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
     this.createVote = this.createVote.bind(this);
     this.handleSignature = this.handleSignature.bind(this);
   }
@@ -66,6 +67,10 @@ class App extends Component {
     })
   }
 
+  handleCreate(info) {
+    return "YA BOIIIII"
+  }
+
   handleSignature(petition, signee) {
     const content = {
       _id: petition.id,
@@ -94,10 +99,11 @@ class App extends Component {
   }
 
   render() {
-    const { signOpen, petitions, curPetition } = this.state;
+    const { signOpen, createOpen, petitions, curPetition } = this.state;
     return (
       <div>
-        <SignModal open={signOpen} handleClose={this.handleSignClose} handleSignature={this.handleSignature} createVote={this.createVote} petition={curPetition} />
+        <SignModal open={signOpen} handleClose={this.handleSignClose} handleSignature={this.handleSignature} petition={curPetition} />
+        <CreateModal open={createOpen} handleClose={this.handleCreateClose} handleCreate={this.handleCreate} />
         <Header handleOpen={this.handleCreateOpen}/>
         <Container maxWidth="sm">
           <div style={{ width: '100%' }}>
