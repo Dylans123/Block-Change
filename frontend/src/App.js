@@ -50,16 +50,34 @@ class App extends Component {
 
   createPetition(content) {
     this.setState({ loading: true })
-    this.state.petitionList.methods.createPetition(content).send({ from: this.state.account })
-    .once('receipt', (receipt) => {
-      this.loadBlockchainData();
+    this.state.petitionList.methods
+    .createPetition(
+      content._title,
+      content._description,
+      content._creatorFirstName,
+      content._creatorLastName,
+      content._creatorEmail,
+      content._category,
+      content._recipient
+    )
+    .send({ from: this.state.account })
+    .once('receipt', async (receipt) => {
+      this.setState({ petitions: [] });
+      await this.loadBlockchainData();
       this.setState({ loading: false })
     })
   }
 
   createVote(content) {
     this.setState({ loading: true })
-    this.state.petitionList.methods.createVote(content._id, content._firstName, content._lastName, content._email).send({ from: this.state.account })
+    this.state.petitionList.methods
+    .createVote(
+      content._id,
+      content._firstName,
+      content._lastName,
+      content._email
+    )
+    .send({ from: this.state.account })
     .once('receipt', async (receipt) => {
       this.setState({ petitions: [] })
       await this.loadBlockchainData();
@@ -68,7 +86,17 @@ class App extends Component {
   }
 
   handleCreate(info) {
-    return "YA BOIIIII"
+    const content = {
+      _title: info.title,
+      _description: info.description,
+      _category: info.category,
+      _recipient: info.recipient,
+      _creatorFirstName: info.firstName,
+      _creatorLastName: info.lastName,
+      _creatorEmail: info.email
+    }
+    this.createPetition(content);
+    this.handleCreateClose();
   }
 
   handleSignature(petition, signee) {
