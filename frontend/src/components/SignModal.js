@@ -43,7 +43,7 @@ class SignModal extends Component {
           <Button onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={handleSignature} autoFocus>
+          <Button onClick={() => {handleSignature(petition, this.state)}} autoFocus>
             Sign
           </Button>
         </DialogActions>

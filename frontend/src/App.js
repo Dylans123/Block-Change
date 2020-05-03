@@ -32,6 +32,7 @@ class App extends Component {
     const web3 = new Web3(Web3.givenProvider || "http://localhost:8545")
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
+    console.log(accounts);
     const petitionList = new web3.eth.Contract(PETITION_LIST_ABI, PETITION_LIST_ADDRESS)
     console.log(petitionList.methods)
     this.setState({ petitionList })
@@ -52,19 +53,21 @@ class App extends Component {
     this.setState({ loading: true })
     this.state.petitionList.methods.createPetition(content).send({ from: this.state.account })
     .once('receipt', (receipt) => {
+      this.loadBlockchainData();
       this.setState({ loading: false })
     })
   }
 
   createVote(content) {
     this.setState({ loading: true })
-    this.state.petitionList.methods.createVote(content).send({ from: this.state.account })
+    this.state.petitionList.methods.createVote(content._id, content._firstName, content._lastName, content._email).send({ from: this.state.account })
     .once('receipt', (receipt) => {
+      this.loadBlockchainData();
       this.setState({ loading: false })
     })
   }
 
-  handleSignature(petition) {
+  handleSignature(petition, signee) {
     const content = {
       _id: petition.id,
       _firstName: signee.firstName,

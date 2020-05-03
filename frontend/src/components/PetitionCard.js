@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LocalOffer from '@material-ui/icons/LocalOffer'
 import Person from '@material-ui/icons/Person'
-import { Card, CardContent, Typography, CardActions, Button } from '@material-ui/core'
+import { Card, CardContent, Typography, Button } from '@material-ui/core'
 
 class PetitionCard extends Component {
   render() {
