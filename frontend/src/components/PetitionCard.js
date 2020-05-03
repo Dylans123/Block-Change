@@ -7,15 +7,15 @@ class PetitionCard extends Component {
   render() {
     const { petition } = this.props;
     return (
-      <Card variant="outlined">
+      <Card variant="outlined" className="mb-3">
         <div style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.12)' }}>
           <Typography className="m-2" color="textSecondary" gutterBottom style={{ display: 'flex', alignITems: 'center' }}>
-            <LocalOffer className="mr-1" style={{ color: '#B4E178' }} /><b>Health</b>
+            <LocalOffer className="mr-1" style={{ color: '#B4E178' }} /><b>{petition.category}</b>
           </Typography>
         </div>
         <CardContent>
           <Typography color="textSecondary" variant="body2">
-            Recipient: The mayor
+            Recipient: {petition.recipient}
           </Typography>
           <Typography variant="h5" component="h2">
             {petition.title}

@@ -80,13 +80,6 @@ class App extends Component {
               {this.state.petitions.map((petition, index) => {
                 return (
                   <PetitionCard petition={petition} />
-                  // <div>
-                  //   {petition.id}<br/>
-                  //   {petition.title}<br/>
-                  //   {petition.description}<br/>
-                  //   {petition.voteCount}<br/>
-                  //   {index}
-                  // </div>
                 )
               })}
             </div>
