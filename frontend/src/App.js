@@ -5,6 +5,17 @@ import { Container } from '@material-ui/core'
 import { PETITION_LIST_ABI, PETITION_LIST_ADDRESS } from './config'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      account: '',
+      petitionList: null,
+      petitionCount: -1,
+      petitions: [],
+      loading: false
+    }
+  }
+
   componentDidMount() {
     this.loadBlockchainData()
   }
@@ -40,25 +51,15 @@ class App extends Component {
     })
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      account: '',
-      petitionList: null,
-      petitionCount: -1,
-      petitions: []
-    }
-  }
-
   render() {
     return (
       <div>
         <Header />
         <Container maxWidth="md">
-          {this.state.loading
-          ? (
+          {/* {this.state.loading
+          ? ( */}
             <div>
-              <h1>Hello, World!</h1>
+              <div className="mt-5 mb-2" style={{ fontSize: '30px', fontWeight: 'bold' }}><b>Hello, World!</b></div>
               <p>Your account: {this.state.account}</p>
               <p>Your petiton count: {this.state.petitionCount}</p>
               {this.state.petitions.map((petition, index) => {
@@ -73,11 +74,11 @@ class App extends Component {
                 )
               })}
             </div>
-          )
+          {/* )
           : (
             <div>Loading...</div>
           )
-          }
+          } */}
         </Container>
       </div>
     );
