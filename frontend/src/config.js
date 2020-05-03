@@ -1,4 +1,4 @@
-export const PETITION_LIST_ADDRESS = "0x9B330471BAf61C6f4D271950865971c7Ab3c97D7"
+export const PETITION_LIST_ADDRESS = "0xA40093490E75758a3493b3781D2a0Aa0dBBA6c31"
 export const PETITION_LIST_ABI = [
   {
     "constant": true,
@@ -24,6 +24,14 @@ export const PETITION_LIST_ABI = [
       },
       {
         "name": "description",
+        "type": "string"
+      },
+      {
+        "name": "recipient",
+        "type": "string"
+      },
+      {
+        "name": "category",
         "type": "string"
       }
     ],
@@ -142,6 +150,14 @@ export const PETITION_LIST_ABI = [
       {
         "name": "_creatorEmail",
         "type": "string"
+      },
+      {
+        "name": "_category",
+        "type": "string"
+      },
+      {
+        "name": "_recipient",
+        "type": "string"
       }
     ],
     "name": "createPetition",
@@ -149,7 +165,7 @@ export const PETITION_LIST_ABI = [
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function",
-    "signature": "0x5f248b1a"
+    "signature": "0xb83fce58"
   },
   {
     "constant": false,
@@ -171,11 +187,11 @@ export const PETITION_LIST_ABI = [
         "type": "string"
       }
     ],
-    "name": "CreateVote",
+    "name": "createVote",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function",
-    "signature": "0xb5023cc8"
+    "signature": "0xc576e11b"
   }
 ]
