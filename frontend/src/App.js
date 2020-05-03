@@ -53,9 +53,10 @@ class App extends Component {
 
   render() {
     return (
+      // <ThemeProvider theme={theme}>
       <div>
         <Header />
-        <Container maxWidth="md">
+        <Container maxWidth="sm">
           {/* {this.state.loading
           ? ( */}
             <div>
