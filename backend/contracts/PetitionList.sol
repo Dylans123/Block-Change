@@ -8,6 +8,8 @@ contract PetitionList {
     uint voteCount;
     string title;
     string description;
+    string recipient;
+    string category;
     Vote[] votes;
   }
 
@@ -37,15 +39,25 @@ contract PetitionList {
   );
 
   constructor() public {
-    createPetition("First Petition", "This is a description for the first petition", "Dylan", "Skelly", "dylanskelly@gmail.com");
+    createPetition(
+      "First Petition",
+      "This is a description for the first petition",
+      "Dylan",
+      "Skelly",
+      "dylanskelly@gmail.com",
+      "Health",
+      "President of the United States"
+    );
   }
 
   function createPetition(
-    string memory _title, string memory _description, string memory _creatorFirstName, string memory _creatorLastName, string memory _creatorEmail
+    string memory _title, string memory _description, string memory _creatorFirstName, string memory _creatorLastName, string memory _creatorEmail, string memory _category, string memory _recipient
   ) public {
     petitions[petitionCount].title = _title;
     petitions[petitionCount].description = _description;
     petitions[petitionCount].voteCount = 1;
+    petitions[petitionCount].category = _category;
+    petitions[petitionCount].recipient = _recipient;
     petitions[petitionCount].votes.push(Vote(petitionCount, _creatorFirstName, _creatorLastName, _creatorEmail));
     emit PetitionCreated(petitionCount, _title, _description, _creatorFirstName, _creatorLastName, _creatorEmail);
     petitionCount ++;
@@ -53,6 +65,7 @@ contract PetitionList {
 
   function CreateVote(uint _id, string memory _firstName, string memory _lastName, string memory _email) public {
     petitions[_id].votes.push(Vote(petitions[_id].voteCount, _firstName, _lastName, _email));
+    petitions[_id].voteCount ++;
     emit VoteCreated(_id, _firstName, _lastName, _email);
     petitionCount ++;
   }
