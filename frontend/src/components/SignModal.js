@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from '@material-ui/core';
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@material-ui/core';
 
 class SignModal extends Component {
   constructor(props) {

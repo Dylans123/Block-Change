@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from '@material-ui/core';
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@material-ui/core';
 
 class SignModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      category: '',
+      recipient: '',
+      title: '',
+      description: '',
       firstName: '',
       lastName: '',
       email: ''
@@ -14,7 +18,7 @@ class SignModal extends Component {
   handleChange = (e) => { this.setState({ [e.target.name]: e.target.value }) }
 
   render() {
-    const { open, handleClose, handleSignature, petition } = this.props;
+    const { open, handleClose, handleCreate } = this.props;
     return (
       <Dialog
         open={open}
@@ -22,9 +26,25 @@ class SignModal extends Component {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Type your information below to sign "} {petition != null ? petition.title : null }</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Enter the information about your cause below to create a petition"}</DialogTitle>
         <DialogContent>
           <form>
+            <div class="form-group">
+              <label for="category">Category</label>
+              <input type="text" class="form-control" id="category" name="category" onChange={(e) => {this.handleChange(e)}} placeholder="Category" />
+            </div>
+            <div class="form-group">
+              <label for="recipient">Recipient</label>
+              <input type="text" class="form-control" id="recipient" name="recipient" onChange={(e) => {this.handleChange(e)}} placeholder="Recipient" />
+            </div>
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" id="title" name="title" onChange={(e) => {this.handleChange(e)}} placeholder="Title" />
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textfield type="text" class="form-control" id="description" name="description" onChange={(e) => {this.handleChange(e)}} placeholder="Description" />
+            </div>
             <div class="form-group">
               <label for="firstName">First Name</label>
               <input type="text" class="form-control" id="firstName" name="firstName" onChange={(e) => {this.handleChange(e)}} placeholder="First Name" />
@@ -43,7 +63,7 @@ class SignModal extends Component {
           <Button onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={() => {handleSignature(petition, this.state)}} autoFocus>
+          <Button onClick={() => {handleCreate(this.state)}} autoFocus>
             Sign
           </Button>
         </DialogActions>
