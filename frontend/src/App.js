@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Web3 from 'web3'
-import './App.css'
+import Header from './components/Header.js'
+import { Container } from '@material-ui/core'
 import { PETITION_LIST_ABI, PETITION_LIST_ADDRESS } from './config'
 
 class App extends Component {
@@ -51,30 +52,33 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        {loading
-        ? (
-          <div>
-            <h1>Hello, World!</h1>
-            <p>Your account: {this.state.account}</p>
-            <p>Your petiton count: {this.state.petitionCount}</p>
-            {this.state.petitions.map((petition, index) => {
-              return (
-                <div>
-                  {petition.id}<br/>
-                  {petition.title}<br/>
-                  {petition.description}<br/>
-                  {petition.voteCount}<br/>
-                  {index}
-                </div>
-              )
-            })}
-          </div>
-        )
-        : (
-          <div>Loading...</div>
-        )
-        }
+      <div>
+        <Header />
+        <Container maxWidth="md">
+          {this.state.loading
+          ? (
+            <div>
+              <h1>Hello, World!</h1>
+              <p>Your account: {this.state.account}</p>
+              <p>Your petiton count: {this.state.petitionCount}</p>
+              {this.state.petitions.map((petition, index) => {
+                return (
+                  <div>
+                    {petition.id}<br/>
+                    {petition.title}<br/>
+                    {petition.description}<br/>
+                    {petition.voteCount}<br/>
+                    {index}
+                  </div>
+                )
+              })}
+            </div>
+          )
+          : (
+            <div>Loading...</div>
+          )
+          }
+        </Container>
       </div>
     );
   }
