@@ -14,7 +14,7 @@ class SignModal extends Component {
   handleChange = (e) => { this.setState({ [e.target.name]: e.target.value }) }
 
   render() {
-    const { open, handleClose, petition } = this.props;
+    const { open, handleClose, handleSignature, petition } = this.props;
     return (
       <Dialog
         open={open}
@@ -43,7 +43,7 @@ class SignModal extends Component {
           <Button onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={handleClose} autoFocus>
+          <Button onClick={handleSignature} autoFocus>
             Sign
           </Button>
         </DialogActions>

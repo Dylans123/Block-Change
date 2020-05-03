@@ -21,6 +21,7 @@ class App extends Component {
     this.handleSignOpen = this.handleSignOpen.bind(this);
     this.handleSignClose = this.handleSignClose.bind(this);
     this.createVote = this.createVote.bind(this);
+    this.handleSignature = this.handleSignature.bind(this);
   }
 
   componentDidMount() {
@@ -57,10 +58,21 @@ class App extends Component {
 
   createVote(content) {
     this.setState({ loading: true })
-    this.state.petitionList.methods.CreateVote(content).send({ from: this.state.account })
+    this.state.petitionList.methods.createVote(content).send({ from: this.state.account })
     .once('receipt', (receipt) => {
       this.setState({ loading: false })
     })
+  }
+
+  handleSignature(petition) {
+    const content = {
+      _id: petition.id,
+      _firstName: signee.firstName,
+      _lastName: signee.lastName,
+      _email: signee.email
+    }
+    this.createVote(content);
+    this.handleSignClose();
   }
 
   handleSignOpen(petition) {
@@ -75,7 +87,7 @@ class App extends Component {
     const { signOpen, petitions, curPetition } = this.state;
     return (
       <div>
-        <SignModal open={signOpen} handleClose={this.handleSignClose} createVote={this.createVote} petition={curPetition} />
+        <SignModal open={signOpen} handleClose={this.handleSignClose} handleSignature={this.handleSignature} createVote={this.createVote} petition={curPetition} />
         <Header />
         <Container maxWidth="sm">
           <div style={{ width: '100%' }}>
