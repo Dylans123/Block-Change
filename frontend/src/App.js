@@ -137,7 +137,9 @@ class App extends Component {
           <div style={{ width: '100%' }}>
             <div className="row my-5" style={{ display: 'flex', alignItems: 'center', fontStyle: 'italic' }}>
               <div className="col-6">
-                <div style={{ fontSize: '40px' }}>"A platform for the future of change"</div>
+                <div style={{ fontSize: '40px' }}>
+                  <blockquote>A platform for the future of change</blockquote>
+                </div>
               </div>
               <div className="col-6">
                 <img src={CoverPhoto} style={{ height: '100%', width: '120%' }}/>

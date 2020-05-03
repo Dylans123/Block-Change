@@ -6,4 +6,26 @@ body {
   font-family: Verdana, Geneva, sans-serif !important;
 }
 
+blockquote {
+  font-size: 50px;
+  font-style: italic;
+  width: 500px;
+  margin: 0.25em 0;
+  padding: 0.35em 40px;
+  line-height: 1.45;
+  position: relative;
+}
+
+blockquote:before {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: block;
+  padding-left: 10px;
+  content: "\201C";
+  font-size: 100px;
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  color: #B4E178;
+}
+
 @import "node_modules/bootstrap/scss/bootstrap";
