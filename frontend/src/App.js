@@ -137,7 +137,7 @@ class App extends Component {
           <div style={{ width: '100%' }}>
             <div className="row my-5" style={{ display: 'flex', alignItems: 'center', fontStyle: 'italic' }}>
               <div className="col-6">
-                <div style={{ fontSize: '40px' }}>
+                <div>
                   <blockquote>A platform for the future of change</blockquote>
                 </div>
               </div>
@@ -147,7 +147,7 @@ class App extends Component {
             </div>
           </div>
             <div>
-              <div className="mt-5 mb-2" style={{ fontSize: '30px', fontWeight: 'bold' }}><b>What's happening on the block chain?</b></div>
+              <div className="mt-5 mb-2" style={{ fontSize: '30px', fontWeight: 'bold' }}><b>What's happening on the blockchange?</b></div>
               {petitions.map((petition) => {
                 return (
                   <PetitionCard petition={petition} handleOpen={this.handleSignOpen} />
