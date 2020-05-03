@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Web3 from 'web3'
 import Header from './components/Header.js'
+import PetitionCard from './components/PetitionCard.js'
 import CoverPhoto from './assets/Home-Cover.png'
 import { Container } from '@material-ui/core'
 import { PETITION_LIST_ABI, PETITION_LIST_ADDRESS } from './config'
@@ -69,17 +70,18 @@ class App extends Component {
           </div>
             <div>
               <div className="mt-5 mb-2" style={{ fontSize: '30px', fontWeight: 'bold' }}><b>What's happening on the block chain?</b></div>
-              <p>Your account: {this.state.account}</p>
-              <p>Your petiton count: {this.state.petitionCount}</p>
+              {/* <p>Your account: {this.state.account}</p>
+              <p>Your petiton count: {this.state.petitionCount}</p> */}
               {this.state.petitions.map((petition, index) => {
                 return (
-                  <div>
-                    {petition.id}<br/>
-                    {petition.title}<br/>
-                    {petition.description}<br/>
-                    {petition.voteCount}<br/>
-                    {index}
-                  </div>
+                  <PetitionCard petition={petition} />
+                  // <div>
+                  //   {petition.id}<br/>
+                  //   {petition.title}<br/>
+                  //   {petition.description}<br/>
+                  //   {petition.voteCount}<br/>
+                  //   {index}
+                  // </div>
                 )
               })}
             </div>
