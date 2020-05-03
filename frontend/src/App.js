@@ -3,6 +3,7 @@ import Web3 from 'web3'
 import Header from './components/Header.js'
 import PetitionCard from './components/PetitionCard.js'
 import SignModal from './components/SignModal.js'
+import CreateModal from './components/CreateModal.js'
 import CoverPhoto from './assets/Home-Cover.png'
 import { Container } from '@material-ui/core'
 import { PETITION_LIST_ABI, PETITION_LIST_ADDRESS } from './config'
@@ -16,10 +17,14 @@ class App extends Component {
       petitionCount: -1,
       petitions: [],
       loading: false,
-      curPetition: null
+      curPetition: null,
+      signOpen: false,
+      createOpen: false
     }
     this.handleSignOpen = this.handleSignOpen.bind(this);
     this.handleSignClose = this.handleSignClose.bind(this);
+    this.handleCreateOpen = this.handleCreateOpen.bind(this);
+    this.handleCreateClose = this.handleCreateClose.bind(this);
     this.createVote = this.createVote.bind(this);
     this.handleSignature = this.handleSignature.bind(this);
   }
@@ -80,12 +85,20 @@ class App extends Component {
     this.setState({ curPetition: null, signOpen: false })
   }
 
+  handleCreateOpen() {
+    this.setState({ createOpen: true })
+  }
+
+  handleCreateClose() {
+    this.setState({ createOpen: false })
+  }
+
   render() {
     const { signOpen, petitions, curPetition } = this.state;
     return (
       <div>
         <SignModal open={signOpen} handleClose={this.handleSignClose} handleSignature={this.handleSignature} createVote={this.createVote} petition={curPetition} />
-        <Header />
+        <Header handleOpen={this.handleCreateOpen}/>
         <Container maxWidth="sm">
           <div style={{ width: '100%' }}>
             <div className="row my-5" style={{ display: 'flex', alignItems: 'center', fontStyle: 'italic' }}>

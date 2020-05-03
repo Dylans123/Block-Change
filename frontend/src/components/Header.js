@@ -9,7 +9,7 @@ const Header = ({ handleOpen }) => {
           <Typography variant="h5">
             BLOCKCHANGE
           </Typography>
-          <Button className="ml-4 p-0" style={{ textTransform: 'none' }} onClick={handleOpen()}>Create petition</Button>
+          <Button className="ml-4 p-0" style={{ textTransform: 'none' }} onClick={() => handleOpen()}>Create petition</Button>
           <Button className="ml-4" style={{ textTransform: 'none' }}>About</Button>
           <Button className="ml-4" style={{ textTransform: 'none' }}>Contact</Button>
         </div>
