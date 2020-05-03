@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import LocalOffer from '@material-ui/icons/LocalOffer'
+import Person from '@material-ui/icons/Person'
 import { Card, CardContent, Typography, CardActions, Button } from '@material-ui/core'
 
 class PetitionCard extends Component {
@@ -6,10 +8,12 @@ class PetitionCard extends Component {
     const { petition } = this.props;
     return (
       <Card variant="outlined">
-        <CardContent>
-          <Typography color="textSecondary" gutterBottom>
-            <b>Health</b>
+        <div style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.12)' }}>
+          <Typography className="m-2" color="textSecondary" gutterBottom style={{ display: 'flex', alignITems: 'center' }}>
+            <LocalOffer className="mr-1" style={{ color: '#B4E178' }} /><b>Health</b>
           </Typography>
+        </div>
+        <CardContent>
           <Typography color="textSecondary" variant="body2">
             Recipient: The mayor
           </Typography>
@@ -20,9 +24,18 @@ class PetitionCard extends Component {
             {petition.description}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
+        <div style={{ borderTop: '1px solid rgba(0, 0, 0, 0.12)' }}>
+          <div className="m-2" style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Button size="small">
+              <Typography>
+                Sign this petition
+              </Typography>
+            </Button>
+            <Typography className="m-2" color="textSecondary" gutterBottom style={{ display: 'flex', alignITems: 'center' }}>
+              <Person className="mr-1" style={{ color: '#B4E178' }} /><b>1 supporters</b>
+            </Typography>
+          </div>
+        </div>
       </Card>
     )
   }
