@@ -40,22 +40,22 @@ contract PetitionList {
 
   constructor() public {
     createPetition(
-      "First Petition",
-      "This is a description for the first petition",
+      "Clean Water in Flint",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Gravida dictum fusce ut placerat orci. A iaculis at erat pellentesque adipiscing commodo elit. Commodo ullamcorper a lacus vestibulum sed arcu. Turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet. Mauris rhoncus aenean vel elit scelerisque mauris. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt. Nunc sed id semper risus in hendrerit gravida rutrum quisque. Vitae turpis massa sed elementum tempus egestas sed sed risus",
       "Dylan",
       "Skelly",
       "dylanskelly@gmail.com",
-      "Health",
-      "President of the United States"
+      "Humanitarian",
+      "Flint Mayor"
     );
     createPetition(
-      "Second Petition",
-      "This is a description for the second petition",
+      "Stop Big Businesses from Taking Small Business Loans",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Gravida dictum fusce ut placerat orci. A iaculis at erat pellentesque adipiscing commodo elit. Commodo ullamcorper a lacus vestibulum sed arcu. Turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet. Mauris rhoncus aenean vel elit scelerisque mauris. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt. Nunc sed id semper risus in hendrerit gravida rutrum quisque. Vitae turpis massa sed elementum tempus egestas sed sed risus",
       "Second Dylan",
       "Second Skelly",
       "anotherdylanskelly@gmail.com",
-      "Health",
-      "President of the United States"
+      "Finance",
+      "Big Businesses"
     );
     createVote(
       0,
