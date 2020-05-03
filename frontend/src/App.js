@@ -74,7 +74,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SignModal open={this.state.signOpen} handleClose={this.handleSignClose} createVote={this.createVote} />
+        <SignModal open={this.state.signOpen} handleClose={this.handleSignClose} createVote={this.createVote} petition={this.state.petition} />
         <Header />
         <Container maxWidth="sm">
           <div style={{ width: '100%' }}>

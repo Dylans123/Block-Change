@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
 
-const SignModal = ({ open, handleClose }) => {
+const SignModal = ({ open, handleClose, petition }) => {
   return (
     <Dialog
       open={open}
