@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card, CardContent, Typography, CardActions, Button } from '@material-ui/core'
 
 class PetitionCard extends Component {
   render() {
@@ -7,13 +8,13 @@ class PetitionCard extends Component {
       <Card variant="outlined">
         <CardContent>
           <Typography color="textSecondary" gutterBottom>
-            Category: Health
+            <b>Health</b>
+          </Typography>
+          <Typography color="textSecondary" variant="body2">
+            Recipient: The mayor
           </Typography>
           <Typography variant="h5" component="h2">
             {petition.title}
-          </Typography>
-          <Typography color="textSecondary">
-            To: The mayor
           </Typography>
           <Typography variant="body2" component="p">
             {petition.description}
