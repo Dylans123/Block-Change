@@ -1,4 +1,4 @@
-export const PETITION_LIST_ADDRESS = "0xF2417D1B61Cf03811764914271Ec9da9076AC0A4"
+export const PETITION_LIST_ADDRESS = "0x9B330471BAf61C6f4D271950865971c7Ab3c97D7"
 export const PETITION_LIST_ABI = [
   {
     "constant": true,
@@ -46,6 +46,13 @@ export const PETITION_LIST_ABI = [
     "stateMutability": "view",
     "type": "function",
     "signature": "0x61ab1f09"
+  },
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor",
+    "signature": "constructor"
   },
   {
     "anonymous": false,

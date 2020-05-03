@@ -9,21 +9,16 @@ class App extends Component {
   }
 
   async loadBlockchainData() {
-    if (window.ethereum) {
-      console.log("woah")
-      window.web3 = new Web3(window.ethereum);
-      try {
-          await window.ethereum.enable();
-          const accounts = await window.web3.eth.getAccounts()
-          this.setState({ account: accounts[0] })
-          const petitionList = new window.web3.eth.Contract(PETITION_LIST_ABI, PETITION_LIST_ADDRESS)
-          this.setState({ petitionList })
-          console.log(petitionList)
-          const petitionCount = await petitionList.methods.petitionCount.call()
-          console.log("petition count: " + petitionCount)
-      } catch (error) {
-          console.log(error)
-      }
+    const web3 = new Web3(Web3.givenProvider || "http://localhost:8545")
+    const accounts = await web3.eth.getAccounts()
+    this.setState({ account: accounts[0] })
+    const petitionList = new web3.eth.Contract(PETITION_LIST_ABI, PETITION_LIST_ADDRESS)
+    const petitionCount = await petitionList.methods.petitionCount().call()
+    this.setState({ petitionCount });
+    for (let i = 0; i < petitionCount; ++i) {
+      const petition = await petitionList.methods.petitions(i).call()
+      console.log(petition)
+      this.setState({ petitions: [...this.state.petitions, petition] })
     }
   }
 
@@ -31,8 +26,8 @@ class App extends Component {
     super(props)
     this.state = {
       account: '',
-      petitionList: null,
-      petitionCount: 0
+      petitionCount: -1,
+      petitions: []
     }
   }
 
@@ -41,6 +36,15 @@ class App extends Component {
       <div className="container">
         <h1>Hello, World!</h1>
         <p>Your account: {this.state.account}</p>
+        <p>Your petiton count: {this.state.petitionCount}</p>
+        {this.state.petitions.map((petition, index) => {
+          return (
+            <div>
+              {petition.toString()}
+              {index}
+            </div>
+          )
+        })}
       </div>
     );
   }
