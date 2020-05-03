@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Web3 from 'web3'
 import Header from './components/Header.js'
+import CoverPhoto from './assets/Home.png'
 import { Container } from '@material-ui/core'
 import { PETITION_LIST_ABI, PETITION_LIST_ADDRESS } from './config'
 
@@ -50,17 +51,24 @@ class App extends Component {
       this.setState({ loading: false })
     })
   }
-
+  // pink #FB8885
   render() {
     return (
-      // <ThemeProvider theme={theme}>
       <div>
         <Header />
         <Container maxWidth="sm">
-          {/* {this.state.loading
-          ? ( */}
+          <div style={{ width: '100%' }}>
+            <div className="row my-5" style={{ display: 'flex', alignItems: 'center', fontStyle: 'italic' }}>
+              <div className="col-6">
+                <div style={{ fontSize: '40px' }}>"A platform for the future of change"</div>
+              </div>
+              <div className="col-6">
+                <img src={CoverPhoto}/>
+              </div>
+            </div>
+          </div>
             <div>
-              <div className="mt-5 mb-2" style={{ fontSize: '30px', fontWeight: 'bold' }}><b>Hello, World!</b></div>
+              <div className="mt-5 mb-2" style={{ fontSize: '30px', fontWeight: 'bold' }}><b>What's happening on the block chain?</b></div>
               <p>Your account: {this.state.account}</p>
               <p>Your petiton count: {this.state.petitionCount}</p>
               {this.state.petitions.map((petition, index) => {
@@ -75,11 +83,6 @@ class App extends Component {
                 )
               })}
             </div>
-          {/* )
-          : (
-            <div>Loading...</div>
-          )
-          } */}
         </Container>
       </div>
     );
