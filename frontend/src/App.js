@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Web3 from 'web3'
 import Header from './components/Header.js'
-import CoverPhoto from './assets/Home.png'
+import CoverPhoto from './assets/Home-Cover.png'
 import { Container } from '@material-ui/core'
 import { PETITION_LIST_ABI, PETITION_LIST_ADDRESS } from './config'
 
@@ -63,7 +63,7 @@ class App extends Component {
                 <div style={{ fontSize: '40px' }}>"A platform for the future of change"</div>
               </div>
               <div className="col-6">
-                <img src={CoverPhoto}/>
+                <img src={CoverPhoto} style={{ height: '100%', width: '120%' }}/>
               </div>
             </div>
           </div>
