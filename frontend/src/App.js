@@ -72,9 +72,10 @@ class App extends Component {
   }
 
   render() {
+    const { signOpen, petitions, curPetition } = this.state;
     return (
       <div>
-        <SignModal open={this.state.signOpen} handleClose={this.handleSignClose} createVote={this.createVote} petition={this.state.petition} />
+        <SignModal open={signOpen} handleClose={this.handleSignClose} createVote={this.createVote} petition={curPetition} />
         <Header />
         <Container maxWidth="sm">
           <div style={{ width: '100%' }}>
@@ -89,7 +90,7 @@ class App extends Component {
           </div>
             <div>
               <div className="mt-5 mb-2" style={{ fontSize: '30px', fontWeight: 'bold' }}><b>What's happening on the block chain?</b></div>
-              {this.state.petitions.map((petition, index) => {
+              {petitions.map((petition) => {
                 return (
                   <PetitionCard petition={petition} handleOpen={this.handleSignOpen} />
                 )
