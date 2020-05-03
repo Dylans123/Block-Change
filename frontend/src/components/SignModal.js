@@ -1,6 +1,6 @@
 import React from 'react'
 
-const VoteModal = () => {
+const SignModal = () => {
   return (
     <div>
       Hello
@@ -8,4 +8,4 @@ const VoteModal = () => {
   )
 }
 
-export default VoteModal;
+export default SignModal;
