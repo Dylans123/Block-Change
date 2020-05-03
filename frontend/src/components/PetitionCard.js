@@ -5,7 +5,7 @@ import { Card, CardContent, Typography, CardActions, Button } from '@material-ui
 
 class PetitionCard extends Component {
   render() {
-    const { petition } = this.props;
+    const { petition, handleOpen } = this.props;
     return (
       <Card variant="outlined" className="mb-3">
         <div style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.12)' }}>
@@ -26,12 +26,12 @@ class PetitionCard extends Component {
         </CardContent>
         <div style={{ borderTop: '1px solid rgba(0, 0, 0, 0.12)' }}>
           <div className="m-2" style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Button size="small">
+            <Button size="small" onClick={() => handleOpen(petition)}>
               <Typography>
                 Sign this petition
               </Typography>
             </Button>
-            <Typography className="m-2" color="textSecondary" gutterBottom style={{ display: 'flex', alignITems: 'center' }}>
+            <Typography className="m-2" color="textSecondary" gutterBottom style={{ display: 'flex', alignItems: 'center' }}>
               <Person className="mr-1" style={{ color: '#B4E178' }} /><b>{petition.voteCount} supporters</b>
             </Typography>
           </div>
